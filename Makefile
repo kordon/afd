@@ -17,4 +17,8 @@ test-coveralls:	lib-cov
 	@AFD_COVERAGE=1 $(MAKE) test REPORTER=mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js
 	rm -rf lib-cov
 
+docs:
+	ronn -r --organization=Kordon man/afd.ronn
+	ronn --html --organization=Kordon --style=toc doc/afd.md
+
 .PHONY: test

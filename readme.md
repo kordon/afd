@@ -18,17 +18,17 @@ $ component install kordon/afd
 
 ```js
 var afd = require('afd')
-var nodes = {}
+var peers = {}
 
 server.on('message', function(msg) {
   if(msg.type !== 'ping') return
-  if(!nodes[server.id]) nodes[server.id] = afd()
-  nodes[server.id].report()
+  if(!peers[server.id]) peers[server.id] = afd()
+  peers[server.id].report()
 })
 
 setInterval(function() {
-  Object.keys(nodes).forEach(function (id) {
-    if(nodes[id].phi() > 8) console.error('Node %s has probably failed!', id)
+  Object.keys(peers).forEach(function (id) {
+    if(peers[id].phi() > 8) console.error('Node %s has probably failed!', id)
     else console.log('Node %s is alive!', id)
   })
 }, 1000)

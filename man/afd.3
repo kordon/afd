@@ -1,0 +1,122 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "AFD" "3" "June 2013" "Kordon" ""
+.
+.SH "NAME"
+\fBafd\fR \- Accrual Failure Detector
+.
+.SH "SYNOPSIS"
+var afd = require(\'afd\')
+.
+.P
+\fIinstance\fR \fBafd\fR([\fInumber\fR ws=100], [\fInumber\fR last=Date\.now()])
+.
+.P
+\fIvoid\fR \fB\.report\fR([\fInumber\fR when=Date\.now()])
+.
+.P
+\fInumber\fR \fB\.phi\fR([\fInumber\fR when=Date\.now()])
+.
+.SH "INSTALL"
+\fB$\fR npm install afd
+.
+.P
+\fB$\fR component install afd
+.
+.SH "DESCRIPTION"
+\fBafd\fR is a \fInode\.js\fR implementation of \fIThe Phi Accrual Failure Detector\fR\.
+.
+.P
+Based (roughly) on the version from \fICassandra\fR, which is based on the paper \fIThe Phi Accrual Failure Detector\fR by Naohiro Hayashibara\.
+.
+.P
+It\'s also a mix between \fIracker/node\-failure\-detector\fR and \fIbpot/node\-gossip/accrual_failure_detector\.js\fR\.
+.
+.P
+\fIThe Phi Accrual Failure Detector\fR is commonly used to detect failure of a peer in a distributed system\.
+.
+.SH "API"
+\fIinstance\fR \fBafd\fR([\fInumber\fR ws=100], [\fInumber\fR last=Date\.now()])
+.
+.P
+Creates a new instance of \fBafd\fR that keeps the state of one peer\. \fIws\fR defines the number of timestamps to keep in the peer history, \fIlast\fR defines the initial timestamp that the peer starts with\.
+.
+.P
+\fIvoid\fR \fB\.report\fR([\fInumber\fR when=Date\.now()])
+.
+.P
+Reports a successful signal from the peer\. By calling report you\'re saying that in the defined timestamp, the peer is alive\. \fIwhen\fR states the timestamp of the signal\.
+.
+.P
+\fInumber\fR \fB\.phi\fR([\fInumber\fR when=Date\.now()])
+.
+.P
+Get the current \fIphi\fR of the peer\. Optionally you can get the \fIphi\fR in a specific timestamp\. The higher the Phi, the bigger the confidence that the peer has failed\.
+.
+.SH "TEST"
+\fB$\fR make test
+.
+.P
+\fB$\fR make test\-browser
+.
+.SH "EXAMPLE"
+.
+.nf
+
+var afd = require(\'afd\')
+var peers = {}
+
+server\.on(\'message\', function(msg) {
+  if(msg\.type !== \'ping\') return
+  if(!peers[server\.id]) peers[server\.id] = afd()
+  peers[server\.id]\.report()
+})
+
+setInterval(function() {
+  Object\.keys(peers)\.forEach(function (id) {
+    if(peers[id]\.phi() > 8) console\.error(\'Node %s has probably failed!\', id)
+    else console\.log(\'Node %s is alive!\', id)
+  })
+}, 1000)
+.
+.fi
+.
+.SH "REFERENCES"
+.
+.IP "\(bu" 4
+Naohiro Hayashibara, Xavier Defago, Rami Yared and Takuya Katayama (2004)\. The Phi Accrual Failure Detector \fIhttp://www\.scribd\.com/doc/50937976/The\-Phi\-Accrual\-Failure\-Detector\fR
+.
+.IP "\(bu" 4
+Marcus Ljungblad (2011) Cassandra and its Accrual Failure Detector \fIhttp://ljungblad\.nu/post/44006928392/cassandra\-and\-its\-accrual\-failure\-detector\fR
+.
+.IP "\(bu" 4
+cassandra/src/java/org/apache/cassandra/gms/FailureDetector\.java at trunk \- apache/cassandra \fIhttps://github\.com/apache/cassandra/blob/trunk/src/java/org/apache/cassandra/gms/FailureDetector\.java\fR
+.
+.IP "\(bu" 4
+The Apache Cassandra Project \fIhttp://cassandra\.apache\.org/\fR
+.
+.IP "\(bu" 4
+racker/node\-failure\-detector \fIhttps://github\.com/racker/node\-failure\-detector\fR
+.
+.IP "\(bu" 4
+node\-gossip/lib/accrual_failure_detector\.js at master \- bpot/node\-gossip \fIhttps://github\.com/bpot/node\-gossip/blob/master/lib/accrual_failure_detector\.js\fR
+.
+.IP "" 0
+.
+.SH "LICENSE"
+.
+.IP "\(bu" 4
+Original \fIracker/node\-failure\-detector\fR code is under the \fBMIT\fR license
+.
+.IP "\(bu" 4
+Updates from \fIRackspace\fR are under the \fBApache 2\.0\fR license
+.
+.IP "\(bu" 4
+Original \fIbpot/node\-gossip\fR code is under the \fBMIT\fR license
+.
+.IP "\(bu" 4
+Updates from \fIkordon/afd\fR are under the \fBMIT\fR license
+.
+.IP "" 0
+

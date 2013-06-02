@@ -8,10 +8,10 @@ var afd = require('afd')
 `afd`([<number> ws=100], [<number> last=Date.now()])
 
 *void*
-`.report`([<number> when])
+`.report`([<number> when=Date.now()])
 
 *number*
-`.phi`([<number> when]) 
+`.phi`([<number> when=Date.now()])
 
 ## INSTALL
 
@@ -21,11 +21,11 @@ var afd = require('afd')
 
 ## DESCRIPTION
 
-**afd** is a [node.js](http://nodejs.org/) implementation of [The Phi Accrual Failure Detector](http://www.scribd.com/doc/50937976/The-Phi-Accrual-Failure-Detector).
+**afd** is a *node.js* implementation of *The Phi Accrual Failure Detector*.
 
-Based (roughly) on the [version](https://svn.apache.org/repos/asf/cassandra/trunk/src/java/org/apache/cassandra/gms/FailureDetector.java) from [Cassandra](http://cassandra.apache.org/), which is based on the paper [The Phi Accrual Failure Detector](http://www.scribd.com/doc/50937976/The-Phi-Accrual-Failure-Detector) by Naohiro Hayashibara.
+Based (roughly) on the version from *Cassandra*, which is based on the paper *The Phi Accrual Failure Detector* by Naohiro Hayashibara.
 
-It's also a mix between [racker/node-failure-detector](https://github.com/racker/node-failure-detector) and [bpot/node-gossip/accrual_failure_detector.js](https://github.com/bpot/node-gossip/blob/master/lib/accrual_failure_detector.js).
+It's also a mix between *racker/node-failure-detector* and *bpot/node-gossip/accrual_failure_detector.js*.
 
 *The Phi Accrual Failure Detector* is commonly used to detect failure of a peer in a distributed system.
 
@@ -39,7 +39,7 @@ Creates a new instance of **afd** that keeps the state of one peer. *ws* defines
 *void*
 `.report`([<number> when=Date.now()])
 
-Reports a successful signal from the peer. By calling report you're saying that in the defined timestamp, the peer is alive. *when* states the timestamp of the signal. 
+Reports a successful signal from the peer. By calling report you're saying that in the defined timestamp, the peer is alive. *when* states the timestamp of the signal.
 
 *number*
 `.phi`([<number> when=Date.now()])
@@ -83,7 +83,7 @@ setInterval(function() {
 
 ## LICENSE
 
- * Original [racker/node-failure-detector](https://github.com/racker/node-failure-detector) code is under the [MIT license](license/joyent)
- * Updates from [Rackspace](https://github.com/rackspace) are under the [Apache 2.0 license](license/rackspace)
- * Original [bpot/node-gossip](https://github.com/bpot/node-gossip) code is under the [MIT license](license/bpot)
- * Updates from [kordon/afd](https://github.com/kordon/afd) are under the [MIT license](license/kordon)
+ * Original *racker/node-failure-detector* code is under the **MIT** license
+ * Updates from *Rackspace* are under the **Apache 2.0** license
+ * Original *bpot/node-gossip* code is under the **MIT** license
+ * Updates from *kordon/afd* are under the **MIT** license
