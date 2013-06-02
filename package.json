@@ -62,5 +62,19 @@
   },
   "engines": {
     "node": ">=0.8"
+  },
+  "testling": {
+    "harness" : "mocha",
+    "files": "test/*.js",
+    "browsers": {
+      "ie": [8, 9, 10, 11],
+      "chrome": [20, 21, 22, 23, 24, 25, "canary"],
+      "firefox": [26, 17, 18, 19, "nightly"],
+      "safari": [4.0, 5.0.5, 5.1, 6.0],
+      "opera": [10, 11, 12, "next"],
+      "iphone": [6.0],
+      "ipad": [6.0],
+      "android-browser": [4.2]
+    }
   }
 }

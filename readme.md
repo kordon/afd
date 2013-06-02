@@ -5,6 +5,9 @@
 [![Dependency Status](https://gemnasium.com/kordon/afd.png)](https://gemnasium.com/kordon/afd)
 [![Coverage Status](https://coveralls.io/repos/kordon/afd/badge.png?branch=master)](https://coveralls.io/r/kordon/afd?branch=master)
 
+
+[![browser support](https://ci.testling.com/kordon/afd.png)](https://ci.testling.com/kordon/afd)
+
 ## install
 
 ```bash
