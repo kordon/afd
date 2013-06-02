@@ -1,0 +1,36 @@
+{
+  "name": "afd",
+  "repo": "kordon/afd",
+  "description": "Accrual Failure Detector",
+  "version": "0.2.3",
+  "keywords": [
+    "accrual",
+    "failure",
+    "detector",
+    "phi",
+    "distributed",
+    "peer"
+  ],
+  "licenses": [
+    {
+      "url": "https://raw.github.com/kordon/afd/master/license/joyent",
+      "type": "MIT"
+    },
+    {
+      "url": "https://raw.github.com/kordon/afd/master/license/rackspace",
+      "type": "Apache 2.0"
+    },
+    {
+      "url": "https://raw.github.com/kordon/afd/master/license/bpot",
+      "type": "MIT"
+    },
+    {
+      "url": "https://raw.github.com/kordon/afd/master/license/kordon",
+      "type": "MIT"
+    }
+  ],
+  "main": "lib/afd.js",
+  "scripts": [
+    "lib/afd.js"
+  ]
+}
