@@ -54,5 +54,7 @@
     "mocha": "1.10.x",
     "chai": "1.6.x"
   },
-  "engines": {}
+  "engines": {
+    "node": ">=0.8"
+  }
 }
