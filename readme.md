@@ -11,7 +11,7 @@
 $ npm install afd
 ```
 ```bash
-component install kordon/afd
+$ component install kordon/afd
 ```
 
 ## example
@@ -23,7 +23,7 @@ var nodes = {}
 server.on('message', function(msg) {
   if(msg.type !== 'ping') return
   if(!nodes[server.id]) nodes[server.id] = afd()
-  afd[server.id].report()
+  nodes[server.id].report()
 })
 
 setInterval(function() {
@@ -38,7 +38,7 @@ setInterval(function() {
 
 ## license
 
- * Original [racker/node-failure-detector](https://github.com/racker/node-failure-detector) code is under the [MIT license, from Joyent](license/joyent)
- * Updates from [Rackspace](https://github.com/rackspace) are under the [Apache license](license/rackspace)
+ * Original [racker/node-failure-detector](https://github.com/racker/node-failure-detector) code is under the [MIT license](license/joyent)
+ * Updates from [Rackspace](https://github.com/rackspace) are under the [Apache 2.0 license](license/rackspace)
  * Original [bpot/node-gossip](https://github.com/bpot/node-gossip) code is under the [MIT license](license/bpot)
- * Updates from [Kordon](https://github.com/kordon) are under the [MIT license](license/kordon)
+ * Updates from [kordon/afd](https://github.com/kordon/afd) are under the [MIT license](license/kordon)
