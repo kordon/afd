@@ -8,6 +8,8 @@ describe('Obvious', function () {
     for(var i = 1; i < 100; i ++) {
       peer.report(Date.now() + i * 1000)
     }
+    
+    peer.phi()
   })
   
   it('mean should be almost exactly one second', function () {

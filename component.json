@@ -2,7 +2,7 @@
   "name": "afd",
   "repo": "kordon/afd",
   "description": "Accrual Failure Detector",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "keywords": [
     "accrual",
     "failure",
