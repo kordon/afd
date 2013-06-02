@@ -55,10 +55,10 @@
   "devDependencies": {
     "mocha-lcov-reporter": "0.0.x",
     "jscoverage": "0.3.x",
+    "component": "0.16.x",
     "coveralls": "2.0.x",
     "mocha": "1.10.x",
-    "chai": "1.6.x",
-    "component": "~0.16.2"
+    "chai": "1.6.x"
   },
   "engines": {
     "node": ">=0.8"
@@ -70,7 +70,7 @@
       "ie": [8, 9, 10, 11],
       "chrome": [20, 21, 22, 23, 24, 25, "canary"],
       "firefox": [26, 17, 18, 19, "nightly"],
-      "safari": [4.0, 5.0.5, 5.1, 6.0],
+      "safari": [4.0, 5.1, 6.0],
       "opera": [10, 11, 12, "next"],
       "iphone": [6.0],
       "ipad": [6.0],
