@@ -34,7 +34,7 @@ setInterval(function() {
 }, 1000)
 ```
 
-## [documentation](kordon.github.io/afd)
+## [documentation](http://kordon.github.io/afd)
 
 ## license
 
