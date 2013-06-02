@@ -1,23 +1,58 @@
 {
-  "author": "Paul Querna <pquerna@apache.org> (http://paul.querna.org/)",
-  "name": "failure-detector",
-  "description": "The Phi accrual failure detector.",
-  "version": "0.1.0",
-  "homepage": "https://github.com/racker/node-failure-detector",
+  "name": "afd",
+  "version": "0.2.0",
+  "description": "Accrual Failure Detector",
+  "keywords": [
+    "accrual",
+    "failure",
+    "detector",
+    "phi",
+    "distributed",
+    "peer"
+  ],
+  "homepage": "https://github.com/kordon/afd",
+  "bugs": {
+    "url": "http://github.com/kordon/afd/issues",
+    "email": "mail@sergioramos.me"
+  },
+  "licenses": [
+    {
+      "url": "https://raw.github.com/kordon/afd/master/license/joyent",
+      "type": "MIT"
+    },
+    {
+      "url": "https://raw.github.com/kordon/afd/master/license/rackspace",
+      "type": "Apache 2.0"
+    },
+    {
+      "url": "https://raw.github.com/kordon/afd/master/license/bpot",
+      "type": "MIT"
+    },
+    {
+      "url": "https://raw.github.com/kordon/afd/master/license/kordon",
+      "type": "MIT"
+    }
+  ],
+  "contributors": [
+    "Christopher Mooney <chris@dod.net> (https://chris.dod.net/)",
+    "Sérgio Ramos <mail@sergioramos.me> (http://sergioramos.me/)",
+    "Paul Querna <pquerna@apache.org> (http://paul.querna.org/)",
+    "Bob Potter <bobby.potter@gmail.com>"
+  ],
+  "main": "lib/afd.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/racker/node-failure-detector.git"
-  },
-  "main": "lib/failure-detector.js",
-  "directories": {
-    "lib": "lib"
+    "url": "git://github.com/kordon/afd.git"
   },
   "scripts": {
-    "test": "make test"
+    "test": "make test test-coveralls"
   },
-  "engines": {
-    "node": "*"
+  "devDependencies": {
+    "mocha-lcov-reporter": "0.0.x",
+    "jscoverage": "0.3.x",
+    "coveralls": "2.0.x",
+    "mocha": "1.10.x",
+    "chai": "1.6.x"
   },
-  "dependencies": {},
-  "devDependencies": {"whiskey": ">=0.5.1"}
+  "engines": {}
 }

@@ -1,22 +1,20 @@
-TEST_FILES=tests/test_fd.js
+REPORTER = dot
+UI = bdd
+TESTS = test
 
 test:
-	whiskey --tests "${TEST_FILES}" --sequential 
+	@NODE_ENV=test ./node_modules/.bin/mocha -u $(UI) -R $(REPORTER) -c -G -b
 
-test-fast:
-	whiskey --tests "${TEST_FILES}" --failfast
+lib-cov:
+	./node_modules/jscoverage/bin/jscoverage lib lib-cov
 
-tap:
-	whiskey --tests "${TEST_FILES}" --test-reporter tap
+test-cov:	lib-cov
+	@AFD_COVERAGE=1 $(MAKE) test REPORTER=html-cov > coverage.html
+	rm -rf lib-cov
 
-coverage:
-	whiskey --tests "${TEST_FILES}" --coverage --coverage-reporter html \
-          --coverage-dir coverage_html
+test-coveralls:	lib-cov
+	echo TRAVIS_JOB_ID $(TRAVIS_JOB_ID)
+	@AFD_COVERAGE=1 $(MAKE) test REPORTER=mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js
+	rm -rf lib-cov
 
-cov:
-	make coverage
-
-leaks:
-	whiskey --tests "${TEST_FILES}" --scope-leaks
-
-.PHONY: test tap coverage cov leaks
+.PHONY: test
