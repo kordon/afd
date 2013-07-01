@@ -12,6 +12,7 @@ describe('Cassandra', function () {
   
   var expected = 0.4342;
   var actual = peer.phi(666);
+
   assert.ok(expected - 0.01 <= actual && actual <= expected + 0.01);
   
   //oh noes, a much higher timestamp, something went wrong!

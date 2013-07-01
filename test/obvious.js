@@ -1,5 +1,6 @@
 var afd = process.env.AFD_COVERAGE ? require('../lib-cov/afd.js') : require('..'),
-    assert = require('chai').assert
+    assert = require('chai').assert,
+    mean = require('mean')
 
 describe('Obvious', function () {
   var peer = afd()
@@ -13,7 +14,7 @@ describe('Obvious', function () {
   })
   
   it('mean should be almost exactly one second', function () {
-    assert.ok(999 <=  peer._mean && peer._mean <= 1001)
+    assert.ok(999 <=  mean(peer.intervals) && mean(peer.intervals) <= 1001)
   })
   
   it('should be pretty certain everything is fine', function () {
