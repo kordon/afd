@@ -6,7 +6,7 @@ test:
 	@NODE_ENV=test ./node_modules/.bin/mocha -u $(UI) -R $(REPORTER) -c -G -b
 
 lib-cov:
-	./node_modules/jscoverage/bin/jscoverage lib lib-cov
+	./node_modules/jscoverage/bin/jscoverage src lib-cov
 
 test-cov:	lib-cov
 	@AFD_COVERAGE=1 $(MAKE) test REPORTER=html-cov > coverage.html
