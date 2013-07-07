@@ -1,5 +1,5 @@
 var afd = process.env.AFD_COVERAGE ? require('../lib-cov/afd.js') : require('..'),
-    assert = require('chai').assert
+    assert = require('assert')
 
 describe('Cassandra', function () {
   var peer = afd(4, 0)

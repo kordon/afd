@@ -1,6 +1,6 @@
 {
   "name": "afd",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Accrual Failure Detector",
   "keywords": [
     "accrual",
@@ -53,6 +53,7 @@
     "test": "make test test-coveralls"
   },
   "dependencies": {
+    "component-type": "git://github.com/component/type.git",
     "mean": "0.1.x"
   },
   "devDependencies": {
@@ -60,8 +61,7 @@
     "jscoverage": "0.3.x",
     "component": "0.16.x",
     "coveralls": "2.0.x",
-    "mocha": "1.10.x",
-    "chai": "1.6.x"
+    "mocha": "1.10.x"
   },
   "engines": {
     "node": ">=0.8"

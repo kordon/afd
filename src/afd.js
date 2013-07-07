@@ -1,23 +1,27 @@
-var mean = require('mean')
-
+var type = require('component-type'),
+    mean = require('mean')
 
 /**
- * Wrapper around the `afd` constructor
+ * afd constructor
+ *
+ *     var afd = require('afd')
+ *
+ *     // create new afd instance
+ *     var peer = afd()
+ *     // report that the peer is live
+ *     peer.report()
+ *     // get the phi
+ *     peer.phi()
+ *
  * @param {Number} [ws=100] How many heartbeat we keep track of
  * @param {Number} [last=Date.now()] Last report timestamp
  * @returns {afd}
  */
-module.exports = function (ws, last) {
-  return new afd(ws, last)
-}
-
-/**
- * @param {Number} [ws=100] How many heartbeat we keep track of
- * @param {Number} [last=Date.now()] Last report timestamp
- */
-var afd = module.exports.afd = function (ws, last) {
-  if(typeof ws !== 'number') ws = 100
-  if(typeof last !== 'number') last = Date.now()
+var afd = module.exports = function (ws, last) {
+  if(!(this instanceof afd)) return new afd(ws, last)
+  
+  if(type(ws) !== 'number') ws = 100
+  if(type(last) !== 'number') last = Date.now()
   
   this.ws = ws
   this.last = last
@@ -50,6 +54,7 @@ afd.prototype.report = function (when) {
  *  * Using `3` as a threshold means the likeliness of mistaken failure is `0.1%`
  *
  * @param {Number} [when=Date.now()]
+ * @returns {Number} the current phi
  */
 afd.prototype.phi = function (when) {
   if(!when) when = Date.now()
